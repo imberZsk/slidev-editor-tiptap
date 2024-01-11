@@ -2,7 +2,7 @@
 theme: seriph
 background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
-highlighter: shikiji
+highlighter: shiki
 lineNumbers: false
 info: |
   ## Slidev Starter Template
@@ -11,14 +11,13 @@ info: |
   Learn more at [Sli.dev](https://sli.dev)
 drawings:
   persist: false
-transition: slide-left
+css: unocss
 title: Welcome to Slidev
-mdc: true
 ---
 
-# Welcome to Slidev
+# 编辑器技术选型
 
-Presentation slides for developers
+Editor Technology Selection
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -27,34 +26,28 @@ Presentation slides for developers
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
+    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
 ---
 
-# What is Slidev?
+# 目标和需求
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+细化技术选型各方面需要考虑的事情
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+- 🤭 **编辑器定位** - 先了解各种编辑器定位，为后续选型做参考。
+- 🎨 **编辑器优缺点** - 对比各种编辑器优缺点，选出不适合需求的编辑器。
+- 🤹 **文档和社区支持** - 评估技术的文档质量和社区支持。良好的文档和活跃的社区可以提供有关技术的帮助、解决问题和分享最佳实践。
+- 🎥 **性能和可靠性** - 考虑编辑器的性能和可靠性要求。对于大型项目或需要高度稳定性的场景，可能需要选择经过良好测试并具有高性能的编辑器技术。
+- 🧑‍💻 **插件和扩展性** - 考虑编辑器的插件和扩展能力。一个好的编辑器应该能够支持自定义插件和扩展，以满足特定的需求。
+- 📤 **可视化和用户体验** - 用户体验至关重要，需要考虑编辑器的可视化效果和用户界面。分析评估编辑器的样式定制性、交互性和用户友好性。
+- 🛠 **趋势和前景** - 了解当前市场上的编辑器技术趋势和前景。考虑技术的发展方向、社区活跃程度以及商业支持等因素。
 
 <br>
 <br>
@@ -78,74 +71,98 @@ h1 {
 }
 </style>
 
-<!--
-Here is another comment.
--->
-
----
-layout: default
 ---
 
-# Table of contents
+# 编辑器定位
 
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
+数据来源于 GitHub 对应编辑器项目 About
+
+| 名称      | About                                                                      |
+| --------- | -------------------------------------------------------------------------- |
+| Quill     | Quill 是一款专为兼容性和可扩展性而构建的现代所见即所得编辑器               |
+| Draft.js  | 用于构建文本编辑器的 React 框架。                                          |
+| lexical   | Lexical 是一个可扩展的文本编辑器框架，可提供出色的可靠性、可访问性和性能。 |
+| Slate.js  | 用于构建富文本编辑器的完全可定制的框架。 （目前处于测试阶段。）            |
+| editor.js | 具有通用 JSON 输出的免费块式编辑器                                         |
+| plate     | React 的富文本编辑器                                                       |
+| tiptap    | 适合 web 的 CMS 无头编辑器框架                                             |
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+
+# 编辑器缺点
+
+数据来源于 [推荐十个优秀的富文本编辑器](https://juejin.cn/post/7201883287937990712?searchId=202312141611152B252BE78D887447895C#heading-4)
+
+| 名称      | 缺点                                                                              |
+| --------- | --------------------------------------------------------------------------------- |
+| Quill     | quill 一直卡在 2.0@dev 中, 后面的升级都需要自己来维护，后续开发新功能会花些精力。 |
+| Draft.js  | 后期不再新增任何功能，官方推荐了新的库（lexical），有被放弃的危险                 |
+| lexical   | 更新迭代很快，有些功能不一定完善，demo UI 不太好看                                |
+| Slate.js  | 不是开箱即用，需要二次开发                                                        |
+| editor.js | 许多功能需要引入插件或者自定义实现                                                |
+| plate     | 虽然已有很多插件，但自定义插件拓展不太清晰方便                                    |
+| tiptap    | Pro 插件需要收费                                                                  |
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+
+# 文档和社区支持
+
+tiptap 有令人震惊的超多 demo 和拓展插件，而且文档写得非常清晰，虽然大约有 10 个插件是收费的，但可以参考开源项目来自己实现。在它的云后台还能看到一些编辑器数据。
+
+<div grid="~ cols-2 gap-2" m="-t-2">
+
+```yaml
+---
+Examples
+---
 ```
 
-<Toc maxDepth="1"></Toc>
-
+```yaml
 ---
-transition: slide-up
-level: 2
+Extensions
 ---
+```
 
-# Navigation
+<img border="rounded" src="/2.jpg">
+<img border="rounded" src="/1.jpg">
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+</div>
 
-## Keyboard Shortcuts
+Read more about [Examples](https://tiptap.dev/docs/editor/examples/default) and
+Read more about [Extensions](https://sli.dev/themes/gallery.html).
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+<!-- Use code snippets and get the highlighting directly![^1]
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover![^1]
-
-```ts {all|5|1-6|9|all} twoslash
-// TwoSlash enables TypeScript hover information and errors in markdown code blocks
-// Learn more at https://www.typescriptlang.org/dev/twoslash/
-function getUser(id: number): User {
-  return undefined as any
-}
-function saveUser(id: number, user: User) {
-  // ...
-}
-// ---cut---
+```ts {all|2|1-6|9|all}
 interface User {
   id: number
   firstName: string
   lastName: string
   role: string
-// ^?
 }
 
 function updateUser(id: number, update: User) {
@@ -155,7 +172,7 @@ function updateUser(id: number, update: User) {
 }
 ```
 
-<arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
 
 [^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
 
@@ -169,276 +186,104 @@ function updateUser(id: number, update: User) {
 .footnote-backref {
   display: none;
 }
-</style>
+</style> -->
 
 ---
 
-# Components
+# 性能和可靠性(tiptap)
 
-<div grid="~ cols-2 gap-4">
-<div>
+数据来源于 [npm.dev.tech](https://npm.devtool.tech/tiptap)
 
-You can use Vue components directly inside your slides.
+<img border="rounded" src="/3.jpg">
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+---
 
-```html
-<Counter :count="10" />
+# 性能和可靠性(plate.js)
+
+数据来源于 [npm.dev.tech](https://npm.devtool.tech/@udecode/plate-common)
+
+<img border="rounded" src="/4.jpg">
+
+---
+
+# 性能和可靠性(editor.js)
+
+数据来源于 [npm.dev.tech](https://npm.devtool.tech/@editorjs/editorjs)
+
+<img border="rounded" src="/5.jpg">
+
+---
+
+# 性能和可靠性-综合对比
+
+数据来源于 [npm-compare](https://npm-compare.com/@tiptap/react,@udecode/plate-common,@editorjs/editorjs)
+
+<img border="rounded" src="/6.jpg">
+
+---
+
+# 可视化和用户体验
+
+先理解一个词 Headless：没有提供用户界面，您可以完全自由地构建您想要的任何界面。无需覆盖任何类、使用 !important 或其他技巧，只需在您习惯的设置中编写您喜欢的任何内容（只提供逻辑，不提供 UI 界面）
+
+<div grid="~ cols-2 gap-2" m="-t-2">
+
+```md
+这是一个引用和一个加粗功能
+
+它们的样式完全由我们的代码控制，tiptap 不会附加样式
+如果是 wangeditor，它的图标都无法修改，只能通过 CSS 覆盖
+
+其他还有很多细节，这里列举一些：
+
+1、提升用户体验的光标
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
+<img border="rounded" src="/7.jpg">
 
 </div>
 
 ---
 
-# LaTeX
+# 趋势和前景
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+有超过 20,000 家企业在使用 Tiptap，260w$投资
 
-<br>
+参考 [开源富文本编辑器 wangEditor 暂停维护 （但仍可继续使用）](https://juejin.cn/post/7272735633458413602?searchId=202401111515277FCC4B9364849CA012E1)
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+参考 [github Sponsors](https://github.com/ueberdosis/tiptap?tab=readme-ov-file#sponsors-)
 
-Block
-$$ {1|3|all}
-\begin{array}{c}
+参考 [tiptap](https://tiptap.dev/blog/insights)
 
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+### 站在巨人的肩膀
 
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
+- [novel](https://github.com/steven-tey/novel)，在线 [Demo](https://novel.sh/) 地址
+- [tittap template](https://github.com/ueberdosis/tiptap-templates)，在线 [Demo](https://templates.tiptap.dev/NTFHDfnbFd) 地址
+- [BlockNote](https://github.com/TypeCellOS/BlockNote)
+- [think](https://github.com/fantasticit/think)
 
 ---
 
-# Diagrams
+# 插件和扩展性
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+这里演示调研进展、一个自定义投票插件、和演示一下所见即所得
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+http://172.29.240.111:3000/editor
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
----
+
+# 一些心得
+
+1. `tiptap` 插件使用清晰，插件开箱即用，能减少大量开发时间。
+
+2. 它想法很好，它有个入门套件，叫，可以通过 `starterKit` 一个插件就能把常用功能覆盖掉，而且也支持修改这些常用功能，减少了很大一部分代码。
+
+3. 封装的一些方法和拓展，符合函数式编程思想，比如操作按钮支持 `bold` 功能，可以去看它的 `example`，或者去看它拓展插件，可以快速实现该功能，而且仅仅是函数调用的方式（清晰优雅）。
+
+4. 一些细节也到位，比如 `focus`，不阻止用户输入，自定义样式 `headless`，自定义输出等，协同也支持，不过用不上，编辑器光标。
 
 ---
-layout: center
-class: text-center
----
 
-# Learn More
+# 展望
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+<div class="m-auto w-full text-center absolute top-[50%] left-0">思考要做出一个什么样的编辑器？</div>
