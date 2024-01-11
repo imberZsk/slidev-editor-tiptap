@@ -234,8 +234,6 @@ function updateUser(id: number, update: User) {
 
 它们的样式完全由我们的代码控制，tiptap 不会附加样式
 如果是 wangeditor，它的图标都无法修改，只能通过 CSS 覆盖
-
-其他还有很多细节，这里列举一些：
 ```
 
 <img border="rounded" src="/7.jpg">
