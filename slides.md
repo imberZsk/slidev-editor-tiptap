@@ -2,7 +2,7 @@
 theme: seriph
 background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
-highlighter: shiki
+highlighter: shikiji
 lineNumbers: false
 info: |
   ## Slidev Starter Template
@@ -11,8 +11,9 @@ info: |
   Learn more at [Sli.dev](https://sli.dev)
 drawings:
   persist: false
-css: unocss
+transition: slide-left
 title: Welcome to Slidev
+mdc: true
 ---
 
 # 编辑器技术选型
