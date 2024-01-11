@@ -36,6 +36,10 @@ Editor Technology Selection
   </a>
 </div>
 
+
+---
+transition: slide-up
+level: 2
 ---
 
 # 目标和需求
@@ -53,7 +57,6 @@ Editor Technology Selection
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
@@ -72,6 +75,9 @@ h1 {
 }
 </style>
 
+---
+transition: slide-up
+level: 2
 ---
 
 # 编辑器定位
@@ -190,6 +196,9 @@ function updateUser(id: number, update: User) {
 </style> -->
 
 ---
+transition: fade-out
+level: 2
+---
 
 # 性能和可靠性(tiptap)
 
@@ -198,6 +207,9 @@ function updateUser(id: number, update: User) {
 <img border="rounded" src="/3.jpg">
 
 ---
+transition: fade-out
+level: 2
+---
 
 # 性能和可靠性(plate.js)
 
@@ -205,6 +217,9 @@ function updateUser(id: number, update: User) {
 
 <img border="rounded" src="/4.jpg">
 
+---
+transition: fade-out
+level: 2
 ---
 
 # 性能和可靠性(editor.js)
