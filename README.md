@@ -1,11 +1,9 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+## 项目介绍
 
-To start the slide show:
+使用 `slidv` 完成编辑器技术选型 `PPT`
 
-- `npm install`
-- `npm run dev`
-- visit http://localhost:3030
+## 项目亮点
 
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev on [documentations](https://sli.dev/).
+- [x] 切屏过渡动画，让`ppt`更精美
+- [x] npm-compare(npmtrends)，数据量化（且对比优缺点），更有说服力
+- [x] 技术选型需要考虑的方面：复用性/性能/开发体验（易上手）/健壮性（规范且可维护）/可拓展性
